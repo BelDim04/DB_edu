@@ -75,7 +75,7 @@ CREATE TABLE booking.OfferHistory (
   offer_id INTEGER NOT NULL,
   valid_to TIMESTAMP NOT NULL,
   price MONEY,
-  FOREIGN KEY (offer_id) REFERENCES booking.Offer(offer_id) ON DELETE CASCADE,
+  FOREIGN KEY (offer_id) REFERENCES booking.Offer(offer_id) ON DELETE CASCADE
 );
 
 CREATE TABLE booking.Booking (

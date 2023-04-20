@@ -170,10 +170,12 @@ UPDATE booking.Rate
 SET name = 'Hourly Rate'
 WHERE rate_id = 1;
 
+INSERT INTO booking.OfferHistory
+SELECT offer_id, NOW(), price from booking.Offer;
+
 UPDATE booking.Offer
 SET price = 125.00
-WHERE venue_id = 1 AND rate_id = 1;
-
+WHERE offer_id = 1;
 
 
 
