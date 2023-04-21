@@ -36,3 +36,4 @@ FROM booking.Venue v
 JOIN booking.Venue_x_Amenity va on v.venue_id = va.venue_id
 JOIN booking.Amenity a on va.amenity_id = a.amenity_id
 JOIN booking.VenueReview vr on v.venue_id = vr.venue_id;
+

@@ -114,3 +114,4 @@ class TestHardQueries(unittest.TestCase):
     def end(self):
         self.cursor.close()
         self.conn.close()
+
