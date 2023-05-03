@@ -98,7 +98,7 @@ class TestHardQueries(unittest.TestCase):
         assert result.shape[1] == 3
 
 
-    def test5(self):
+    def test6(self):
         query = """
             SELECT v.name, a.name, vr.rating, COUNT(vr.rating) OVER (PARTITION BY a.amenity_id), AVG(vr.rating) OVER (PARTITION BY a.amenity_id)
             FROM booking.Venue v
@@ -110,6 +110,59 @@ class TestHardQueries(unittest.TestCase):
         result = pd.read_sql(query, con=self.conn)
         assert result.shape[1] == 3
 
+    def test7(self):
+        query = """
+            SELECT *
+            FROM booking.ProtectedUserInfo
+            """
+
+        result = pd.read_sql(query, con=self.conn)
+        assert result.shape[1] == 4
+
+    def test8(self):
+        query = """
+            SELECT *
+            FROM booking.ProtectedOwnerInfo
+            """
+
+        result = pd.read_sql(query, con=self.conn)
+        assert result.shape[1] == 4
+
+    def test9(self):
+        query = """
+            SELECT *
+            FROM booking.OwnerStat
+            """
+
+        result = pd.read_sql(query, con=self.conn)
+        assert result.shape[1] == 3
+
+    def test10(self):
+        query = """
+            SELECT *
+            FROM booking.UserStat
+            """
+
+        result = pd.read_sql(query, con=self.conn)
+        assert result.shape[1] == 4
+
+    def test11(self):
+        query = """
+            SELECT *
+            FROM booking.AmenityStat
+            """
+
+        result = pd.read_sql(query, con=self.conn)
+        assert result.shape[1] == 3
+
+    def test12(self):
+        query = """
+            SELECT *
+            FROM booking.RateStat
+            """
+
+        result = pd.read_sql(query, con=self.conn)
+        assert result.shape[1] == 3
 
     def end(self):
         self.cursor.close()
