@@ -171,7 +171,8 @@ SET name = 'Hourly Rate'
 WHERE rate_id = 1;
 
 INSERT INTO booking.OfferHistory
-SELECT offer_id, NOW(), price from booking.Offer;
+SELECT offer_id, NOW(), price from booking.Offer
+WHERE offer_id = 1;
 
 UPDATE booking.Offer
 SET price = 125.00
@@ -226,4 +227,5 @@ SELECT a.name, COUNT(*)
 FROM booking.Amenity a 
 JOIN booking.Venue_x_Amenity va ON a.amenity_id = va.amenity_id 
 GROUP BY a.name;
+
 
