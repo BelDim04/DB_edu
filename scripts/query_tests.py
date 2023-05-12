@@ -164,6 +164,25 @@ class TestHardQueries(unittest.TestCase):
         result = pd.read_sql(query, con=self.conn)
         assert result.shape[1] == 3
 
+    def test13(self):
+        query = """
+            SELECT venue_id
+            FROM booking.Venue
+            WHERE is_empty(venue_id, TIMESTAMP '2023-10-19 10:00:00', TIMESTAMP '2023-10-26 10:00:00')
+            """
+
+        result = pd.read_sql(query, con=self.conn)
+        assert result.shape[1] == 1
+
+    def test14(self):
+        query = """
+            SELECT description(user_id)
+            FROM booking.User
+            """
+
+        result = pd.read_sql(query, con=self.conn)
+        assert result.shape[1] == 1
+
     def end(self):
         self.cursor.close()
         self.conn.close()
