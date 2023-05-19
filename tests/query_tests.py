@@ -108,7 +108,7 @@ class TestHardQueries(unittest.TestCase):
             """
 
         result = pd.read_sql(query, con=self.conn)
-        assert result.shape[1] == 3
+        assert result.shape[1] == 5
 
     def test7(self):
         query = """
@@ -153,7 +153,7 @@ class TestHardQueries(unittest.TestCase):
             """
 
         result = pd.read_sql(query, con=self.conn)
-        assert result.shape[1] == 3
+        assert result.shape[1] == 4
 
     def test12(self):
         query = """
